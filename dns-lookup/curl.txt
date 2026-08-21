@@ -1,0 +1,14 @@
+# Way2API - DNS Lookup
+# POST https://app.way2api.com/api/v1/domain/dns
+# Docs: https://app.way2api.com/documentation/dns-lookup
+#
+# Get your API key at https://app.way2api.com/register
+# The key may be sent as "Authorization: Bearer <key>" or "X-API-Key: <key>".
+
+curl -X POST "https://app.way2api.com/api/v1/domain/dns" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "domain_name": "google.com",
+    "record_type": "all"
+  }'

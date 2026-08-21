@@ -1,0 +1,48 @@
+/**
+ * Way2API - Credit Report Equifax
+ * Docs: https://app.way2api.com/documentation/credit-report-equifax
+ *
+ * Node.js 18+ (built-in fetch, no dependencies).
+ * Run:  WAY2API_KEY=your_key node node.js
+ */
+
+const API_KEY = process.env.WAY2API_KEY || "YOUR_API_KEY";
+const ENDPOINT = "https://app.way2api.com/api/v1/credit-report/fetch";
+
+const payload = {
+  "name": "Ananya Sharma",
+  "mobile": "9876543210",
+  "number": "123456789012",
+  "fetch_by": "aadhaar"
+};
+
+async function main() {
+  const response = await fetch(ENDPOINT, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${API_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  const body = await response.json();
+
+  // Every Way2API response is { success, message, data }.
+  // Check both the HTTP status and the success flag.
+  if (!response.ok || body.success !== true) {
+    console.error(`Request failed (HTTP ${response.status}): ${body.message}`);
+    if (body.data?.order_id) {
+      console.error(`Order ID (quote this in support requests): ${body.data.order_id}`);
+    }
+    process.exitCode = 1;
+    return;
+  }
+
+  console.log(JSON.stringify(body.data.result, null, 2));
+}
+
+main().catch((error) => {
+  console.error(`Network or parsing error: ${error.message}`);
+  process.exitCode = 1;
+});

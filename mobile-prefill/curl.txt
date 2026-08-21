@@ -1,0 +1,14 @@
+# Way2API - Mobile Prefill
+# POST https://app.way2api.com/api/v1/mobile/prefill
+# Docs: https://app.way2api.com/documentation/mobile-prefill
+#
+# Get your API key at https://app.way2api.com/register
+# The key may be sent as "Authorization: Bearer <key>" or "X-API-Key: <key>".
+
+curl -X POST "https://app.way2api.com/api/v1/mobile/prefill" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Ananya Sharma",
+    "mobile_number": "9876543210"
+  }'

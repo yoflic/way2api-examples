@@ -1,0 +1,13 @@
+# Way2API - Vehicle RC Text and PDF
+# POST https://app.way2api.com/api/v1/rc/text-pdf
+# Docs: https://app.way2api.com/documentation/vehicle-rc-text-pdf
+#
+# Get your API key at https://app.way2api.com/register
+# The key may be sent as "Authorization: Bearer <key>" or "X-API-Key: <key>".
+
+curl -X POST "https://app.way2api.com/api/v1/rc/text-pdf" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "rc_number": "DL3CAB1234"
+  }'

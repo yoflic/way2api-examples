@@ -1,0 +1,14 @@
+# Way2API - Currency Exchange Rates
+# POST https://app.way2api.com/api/v1/currency/rates
+# Docs: https://app.way2api.com/documentation/currency-rates
+#
+# Get your API key at https://app.way2api.com/register
+# The key may be sent as "Authorization: Bearer <key>" or "X-API-Key: <key>".
+
+curl -X POST "https://app.way2api.com/api/v1/currency/rates" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "base": "USD",
+    "symbols": "INR,EUR,GBP"
+  }'

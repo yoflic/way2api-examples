@@ -1,0 +1,17 @@
+# Way2API - Send OTP/PIN by SMS
+# POST https://app.way2api.com/api/v1/aws/send_otp-pin
+# Docs: https://app.way2api.com/documentation/send-otp-pin-sms
+#
+# Get your API key at https://app.way2api.com/register
+# The key may be sent as "Authorization: Bearer <key>" or "X-API-Key: <key>".
+
+curl -X POST "https://app.way2api.com/api/v1/aws/send_otp-pin" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "value": "5289",
+    "number": "919876543210",
+    "content": "OTP",
+    "purpose": "login",
+    "share_with": "no_one"
+  }'

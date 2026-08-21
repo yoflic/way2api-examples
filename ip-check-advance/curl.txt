@@ -1,0 +1,13 @@
+# Way2API - IP Check Advance
+# POST https://app.way2api.com/api/v1/ip/check_advance
+# Docs: https://app.way2api.com/documentation/ip-check-advance
+#
+# Get your API key at https://app.way2api.com/register
+# The key may be sent as "Authorization: Bearer <key>" or "X-API-Key: <key>".
+
+curl -X POST "https://app.way2api.com/api/v1/ip/check_advance" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "ip_address": "122.180.149.100"
+  }'

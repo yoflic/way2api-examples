@@ -1,0 +1,13 @@
+# Way2API - Voter ID Verification
+# POST https://app.way2api.com/api/v1/voter-id/verify
+# Docs: https://app.way2api.com/documentation/voter-id
+#
+# Get your API key at https://app.way2api.com/register
+# The key may be sent as "Authorization: Bearer <key>" or "X-API-Key: <key>".
+
+curl -X POST "https://app.way2api.com/api/v1/voter-id/verify" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "voter_id": "ABC1234567"
+  }'

@@ -1,0 +1,13 @@
+# Way2API - Domain WHOIS Lookup
+# POST https://app.way2api.com/api/v1/domain/whois
+# Docs: https://app.way2api.com/documentation/domain-whois-lookup-v2
+#
+# Get your API key at https://app.way2api.com/register
+# The key may be sent as "Authorization: Bearer <key>" or "X-API-Key: <key>".
+
+curl -X POST "https://app.way2api.com/api/v1/domain/whois" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "domain_name": "way2api.com"
+  }'

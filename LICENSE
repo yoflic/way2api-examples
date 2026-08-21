@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 VIVEK SINGH
+Copyright (c) 2026 Way2API
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,14 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+NOTE ON CREDENTIALS
+
+This repository contains no API keys, tokens or credentials. Every example uses
+the placeholder YOUR_API_KEY, or reads a key from the WAY2API_KEY environment
+variable. Obtain your own key at https://app.way2api.com/register.
+
+Use of the Way2API service is governed by Way2API's own terms of service, which
+this licence does not modify.

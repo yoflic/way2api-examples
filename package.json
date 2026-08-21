@@ -1,8 +1,21 @@
 {
   "name": "way2api-examples",
   "version": "1.0.0",
-  "description": "Way2API usage examples",
-  "dependencies": {
-    "axios": "^1.6.0"
+  "description": "Official Way2API API integration examples for developers",
+  "homepage": "https://www.way2api.com",
+  "license": "MIT",
+  "private": true,
+  "keywords": [
+    "way2api",
+    "api",
+    "examples",
+    "verification",
+    "kyc",
+    "email-validation",
+    "whois",
+    "ip-intelligence"
+  ],
+  "engines": {
+    "node": ">=18"
   }
 }

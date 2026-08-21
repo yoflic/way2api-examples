@@ -1,0 +1,16 @@
+# Way2API - Credit Report Experian PDF
+# POST https://app.way2api.com/api/v1/credit-report-experian/fetch-report-pdf
+# Docs: https://app.way2api.com/documentation/credit-report-experian-pdf
+#
+# Get your API key at https://app.way2api.com/register
+# The key may be sent as "Authorization: Bearer <key>" or "X-API-Key: <key>".
+
+curl -X POST "https://app.way2api.com/api/v1/credit-report-experian/fetch-report-pdf" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Ananya Sharma",
+    "mobile": "9876543210",
+    "pan": "ABCDE1234F",
+    "consent": "Y"
+  }'

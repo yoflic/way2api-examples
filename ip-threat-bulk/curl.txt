@@ -1,0 +1,17 @@
+# Way2API - Bulk IP Threat Intelligence
+# POST https://app.way2api.com/api/v1/ip/threat/bulk
+# Docs: https://app.way2api.com/documentation/ip-threat-bulk
+#
+# Get your API key at https://app.way2api.com/register
+# The key may be sent as "Authorization: Bearer <key>" or "X-API-Key: <key>".
+
+curl -X POST "https://app.way2api.com/api/v1/ip/threat/bulk" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "ip_addresses": [
+      "8.8.8.8",
+      "1.1.1.1",
+      "not-an-ip"
+    ]
+  }'

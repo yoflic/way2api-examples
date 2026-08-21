@@ -1,0 +1,13 @@
+# Way2API - Aadhaar PAN Link Check
+# POST https://app.way2api.com/api/v1/aadhaar/aadhaar_pan_link_check
+# Docs: https://app.way2api.com/documentation/aadhaar-pan-link-check
+#
+# Get your API key at https://app.way2api.com/register
+# The key may be sent as "Authorization: Bearer <key>" or "X-API-Key: <key>".
+
+curl -X POST "https://app.way2api.com/api/v1/aadhaar/aadhaar_pan_link_check" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "aadhaar_number": "123456789012"
+  }'

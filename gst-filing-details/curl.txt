@@ -1,0 +1,14 @@
+# Way2API - GST Filing Details
+# POST https://app.way2api.com/api/v1/gst/filing-details
+# Docs: https://app.way2api.com/documentation/gst-filing-details
+#
+# Get your API key at https://app.way2api.com/register
+# The key may be sent as "Authorization: Bearer <key>" or "X-API-Key: <key>".
+
+curl -X POST "https://app.way2api.com/api/v1/gst/filing-details" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "gst_number": "10ABCDE1234F1Z5",
+    "financial_year": "2023-24"
+  }'

@@ -1,0 +1,14 @@
+# Way2API - Mobile R-Offer Fetch
+# POST https://app.way2api.com/api/v1/mobile/r-offer
+# Docs: https://app.way2api.com/documentation/mobile-r-offer
+#
+# Get your API key at https://app.way2api.com/register
+# The key may be sent as "Authorization: Bearer <key>" or "X-API-Key: <key>".
+
+curl -X POST "https://app.way2api.com/api/v1/mobile/r-offer" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "mobile_number": "9876543210",
+    "operator": "airtel"
+  }'
