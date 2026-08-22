@@ -1,6 +1,8 @@
 # Way2API Examples
 
-Official, copy-paste-ready integration examples for the [Way2API](https://www.way2api.com) platform — cURL, Node.js and Python for every live API.
+Official, copy-paste-ready integration examples for the [Way2API](https://www.way2api.com) platform.
+
+42 live APIs, each with a runnable example in 10 languages: cURL, Python, Node.js, PHP, Java, C#, Go, Ruby, Kotlin and Swift.
 
 Way2API is a global developer API platform offering domain WHOIS and availability
 checks, DNS, SSL and IP threat intelligence, email validation, SMS OTP delivery, and
@@ -12,11 +14,12 @@ identity, KYC and business compliance verification APIs.
 
 Every example in this repository is generated from the live Way2API documentation
 catalogue (`GET https://app.way2api.com/api/v1/docs`), so endpoints, parameters and response shapes
-match what the platform publishes. Catalogue snapshot: `2026-08-21T01:11:41+00:00`.
+match what the platform publishes. Catalogue snapshot: `2026-08-17T20:36:56+00:00`.
 
 ## Contents
 
 - [Quick start](#quick-start)
+- [Supported languages](#supported-languages)
 - [Authentication](#authentication)
 - [Response format](#response-format)
 - [Error handling](#error-handling)
@@ -25,6 +28,7 @@ match what the platform publishes. Catalogue snapshot: `2026-08-21T01:11:41+00:0
 - [Public catalogue endpoints](#public-catalogue-endpoints)
 - [Repository layout](#repository-layout)
 - [Getting an API key](#getting-an-api-key)
+- [Responsible use and data protection](#responsible-use-and-data-protection)
 - [Support](#support)
 
 ## Quick start
@@ -67,8 +71,31 @@ response = requests.post(
 print(response.json()["data"]["result"])
 ```
 
-Each API folder contains a runnable `curl.txt`, `node.js` and `python.py` plus a
-README with that API's parameters and response.
+Each API folder holds one runnable file per language plus a README with that
+API's parameters, response and error handling.
+
+## Supported languages
+
+The same request in 10 languages. Every API folder contains all of them,
+so the file you need is always at `{api-slug}/{file}`.
+
+| Language | File | Requirements |
+|---|---|---|
+| cURL | `curl.txt` | Command line. Works anywhere curl is installed. |
+| Python | `python.py` | Python 3 with the requests library. |
+| Node.js | `node.js` | Node.js 18+ built-in fetch. No dependencies. |
+| PHP | `php.php` | PHP 8 with the cURL extension. No Composer packages. |
+| Java | `java.java` | Java 11+ java.net.http. No dependencies. |
+| C# | `csharp.cs` | .NET 6+ HttpClient and System.Text.Json. |
+| Go | `go.go` | Go 1.18+ standard library only. |
+| Ruby | `ruby.rb` | Ruby 2.6+ standard library (net/http). |
+| Kotlin | `kotlin.kt` | Kotlin on JVM 11+. Android friendly. |
+| Swift | `swift.swift` | Swift 5 URLSession. iOS and macOS. |
+
+These are **examples, not SDKs** — there is no package to install and nothing to
+keep updated. Copy the file into your project and adapt it.
+
+Missing a language you need? Open an issue and say which one.
 
 ## Authentication
 
@@ -264,9 +291,16 @@ way2api-examples/
 ├── .gitignore
 ├── email-validation/
 │   ├── README.md      # parameters, responses, error handling
-│   ├── curl.txt       # runnable cURL request
-│   ├── node.js        # Node.js 18+, no dependencies
-│   └── python.py      # Python 3, requests
+│   ├── curl.txt       # cURL
+│   ├── python.py      # Python
+│   ├── node.js        # Node.js
+│   ├── php.php        # PHP
+│   ├── java.java      # Java
+│   ├── csharp.cs      # C#
+│   ├── go.go          # Go
+│   ├── ruby.rb        # Ruby
+│   ├── kotlin.kt      # Kotlin
+│   └── swift.swift    # Swift
 ├── domain-whois-lookup-v2/
 │   └── ...
 └── ...
@@ -274,26 +308,31 @@ way2api-examples/
 
 ### Running an example
 
+Every example reads the key from `WAY2API_KEY`, so nothing has to be edited to
+run one:
+
 ```bash
 export WAY2API_KEY=your_actual_key
-
 cd email-validation
-node node.js
-python python.py
 
-# for cURL, replace YOUR_API_KEY in the file, or:
+node node.js                 # Node.js 18+
+python python.py             # pip install requests
+php php.php                  # PHP 8 with ext-curl
+ruby ruby.rb                 # Ruby 2.6+
+go run go.go                 # Go 1.18+
+java java.java               # JDK 11+
+swift swift.swift            # Swift 5
+
+# cURL: substitute the key, or replace YOUR_API_KEY in the file
 sed "s/YOUR_API_KEY/$WAY2API_KEY/" curl.txt | bash
 ```
 
-Node examples need **Node.js 18 or newer** (for built-in `fetch`) and have no
-dependencies. Python examples need **Python 3** and `requests`:
+Kotlin and C# need a compile step — the command is in each file's header comment.
 
-```bash
-pip install requests
-```
-
-These are **examples, not SDKs** — copy them into your project and adapt them.
-There is no package to install.
+> **Mobile note.** The Kotlin and Swift examples run from a terminal to keep them
+> short. In a shipped Android or iOS app, do **not** embed your API key: call
+> Way2API from your own backend and have the app talk to that instead. A key in an
+> app bundle can be extracted from the binary.
 
 ## Getting an API key
 
@@ -307,6 +346,34 @@ Way2API states that a free tier is included and no credit card is required to st
 Trial credits are allocated per API; the current allowance for each API is published
 live at `GET https://app.way2api.com/api/v1/trial-credits`. See [https://www.way2api.com](https://www.way2api.com) and
 [https://www.way2api.com/page/pricing](https://www.way2api.com/page/pricing) for current plans and pricing.
+
+## Responsible use and data protection
+
+Many of these APIs return personal data. Identity, KYC and credit-bureau
+endpoints — PAN, Aadhaar linkage, Voter ID, driving licence, vehicle RC, bank
+account, mobile prefill and credit reports — are regulated, and the sample values
+in this repository are placeholders precisely because real ones do not belong in a
+public repository.
+
+When you integrate:
+
+- **Have a lawful basis and the individual's consent** before you look anyone up.
+  Some endpoints make this explicit — the Experian credit report APIs require a
+  `consent` parameter of `Y`, and you must actually hold that consent, not just
+  send the flag.
+- **Collect and keep the minimum.** Store the `order_id` for reconciliation rather
+  than caching whole verification payloads.
+- **Keep personal data out of logs**, error trackers and analytics. The examples
+  print the result to stdout because they are demonstrations; production code
+  should not.
+- **Never put an API key in client-side or mobile code.** Call Way2API from your
+  own backend. A key shipped in a browser bundle or an app binary can be
+  extracted and used at your expense.
+- **Follow the law that applies to you** — in India the DPDP Act 2023 and the
+  sector rules for KYC and credit information, and equivalents elsewhere.
+
+This is a pointer, not legal advice. Way2API's own terms govern use of the
+service; see [https://www.way2api.com](https://www.way2api.com).
 
 ## Support
 
