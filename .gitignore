@@ -177,3 +177,13 @@ env/
 *.swo
 .DS_Store
 Thumbs.db
+
+# ---------------------------------------------------------------------------
+# Local tooling notes - never publish
+# ---------------------------------------------------------------------------
+CLAUDE.md
+.claude/
+AGENTS.md
+.cursorrules
+.aider*
+.github/copilot-instructions.md
