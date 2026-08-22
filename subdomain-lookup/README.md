@@ -559,7 +559,7 @@ exit(exitCode)
           "last_seen": "2026-04-09"
         },
         {
-          "name": "stage-y4du5xz.way2api.com",
+          "name": "stage2.way2api.com",
           "first_seen": "2026-04-30",
           "last_seen": "2026-06-30"
         }
